@@ -1,0 +1,13 @@
+package com.example.Board.repository;
+
+import com.example.Board.entity.BoardEntity;
+import com.example.Board.entity.CommentEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface CommentRepository extends JpaRepository<CommentEntity, Long> {
+    List<CommentEntity> findAllByBoardEntityOrderByIdDesc(BoardEntity boardEntity);
+}
